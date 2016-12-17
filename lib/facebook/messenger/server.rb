@@ -1,7 +1,7 @@
 require 'rack'
 require 'json'
 require 'openssl'
-
+require 'byebug'
 module Facebook
   module Messenger
     class BadRequestError < Error; end
@@ -45,6 +45,7 @@ module Facebook
       end
 
       def receive
+        byebug
         check_integrity
 
         trigger(parsed_body)
